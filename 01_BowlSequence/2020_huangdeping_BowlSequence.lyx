@@ -1,0 +1,491 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 2
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+The Bowl's Sequence
+\end_layout
+
+\begin_layout Author
+Deping Huang
+\end_layout
+
+\begin_layout Date
+2020-04-02
+\end_layout
+
+\begin_layout Section
+The Power Series of 
+\begin_inset Formula $\arctan\left(1-\sqrt{1-x^{2}}\right)$
+\end_inset
+
+ and Bowl's Sequence.
+\end_layout
+
+\begin_layout Standard
+I have discussed about a function and its power series at 
+\begin_inset Formula $x=0$
+\end_inset
+
+.
+ Here is the expression of the function.
+ Obviously, 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ is an even function, only the even powers of 
+\begin_inset Formula $x$
+\end_inset
+
+ is contained in the series.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+f\left(x\right) & = & \arctan\left(1-\sqrt{1-x^{2}}\right)\\
+ & = & \sum_{n=1}^{\infty}\frac{a_{n}}{\left(2n\right)!}x^{2n}\\
+a_{n} & = & 1,3,15,315,36855,4833675,\\
+ &  & 711485775,133449190875,\\
+ &  & 33399969978375,10845524928112875,\\
+ &  & 4368604540935009375,\\
+ &  & 2121018409773134746875,\cdots
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+I name the 
+\begin_inset Formula $a_{n}$
+\end_inset
+
+ Bowl's sequence, for the curve of 
+\begin_inset Formula $f(x)$
+\end_inset
+
+ looks like a bowl.
+ Now I try to get the recurrence formula.
+ Firstly, note that
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\sqrt{1-x^{2}} & = & 1-\sum_{n=0}^{\infty}\frac{\prod_{k=1}^{n-1}\left(k-\frac{1}{2}\right)}{2n!}x^{2n}\\
+ &  & 1-\sum_{n=1}^{\infty}\frac{\left(2n-2\right)!}{\left(n!\right)\left(n-1\right)!2^{2n-1}}x^{2n}\\
+\left(\arctan x\right)^{'} & = & \frac{1}{1+x^{2}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then one can write
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+f^{'}\left(x\right) & = & \sum_{n=1}^{\infty}\frac{a_{n}}{\left(2n-1\right)!}x^{2n-1}\\
+ & = & \frac{x}{\sqrt{1-x^{2}}\left(3-x^{2}\right)-2\left(1-x^{2}\right)}\\
+ &  & \sum_{n=0}^{\infty}\frac{a_{n+1}}{\left(2n+1\right)!}x^{2n}\\
+ & = & \frac{1}{\sqrt{1-x^{2}}\left(3-x^{2}\right)-2\left(1-x^{2}\right)}\\
+ & = & \frac{1}{\left(x^{2}-3\right)\sum_{n=1}^{\infty}k_{n}x^{2n}+1+x^{2}}\\
+ & = & \frac{1}{1-\frac{1}{2}x^{2}+\sum_{n=2}^{\infty}\left(k_{n-1}-3k_{n}\right)x^{2n}}\\
+ & = & \frac{1}{\sum_{m=0}^{\infty}b_{m}x^{2m}}\\
+k_{n} & = & \frac{1}{2},\frac{1}{8},\frac{1}{16},\frac{5}{128},n\ge1\\
+k_{n} & = & \frac{\left(2n-2\right)!}{\left(n!\right)\left(n-1\right)!2^{2n-1}}\\
+ &  & k_{n-1}-3k_{n}\\
+ & = & \frac{\left(2n-4\right)!}{\left(n-1\right)!\left(n-2\right)!2^{2n-3}}\\
+ &  & -\frac{3\left(2n-2\right)!}{\left(n!\right)\left(n-1\right)!2^{2n-1}}\\
+ & = & \frac{\left(2n-4\right)!}{\left(n!\right)\left(n-1\right)!2^{2n-1}}\times\\
+ &  & \left(4n\left(n-1\right)-3\left(2n-2\right)\left(2n-3\right)\right)\\
+ & = & \frac{-\left(2n-4\right)!2\left(n-1\right)\left(4n-9\right)}{\left(n!\right)\left(n-1\right)!2^{2n-1}}\\
+ & = & -\frac{\left(2n-4\right)!\left(4n-9\right)}{\left(n!\right)\left(n-2\right)!2^{2n-2}}\\
+b_{0,1,2\cdots} & = & 1,-\frac{1}{2},k_{n-1}-3k_{n}\\
+1 & = & \sum_{n=0}^{\infty}\frac{a_{n+1}}{\left(2n+1\right)!}x^{2n}\sum_{m=0}^{\infty}b_{m}x^{2m}\\
+ & = & \sum_{n=0}^{\infty}\sum_{k=0}^{n}\frac{a_{k+1}b_{n-k}}{\left(2k+1\right)!}x^{2n}\\
+0 & = & \frac{a_{2}}{3!}+a_{1}b_{1}\\
+0 & = & \sum_{k=0}^{n}\frac{a_{k+1}b_{n-k}}{\left(2k+1\right)!}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then we get the recurrent formula
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+a_{1} & = & 1\\
+b_{0,1,2} & = & 1,-\frac{1}{2},\frac{1}{8}\\
+b_{n} & = & -\frac{\left(2n-4\right)!\left(4n-9\right)}{\left(n!\right)\left(n-2\right)!2^{2n-2}},n\ge2,\frac{10!*19}{7!*5!*}\\
+a_{n+1} & = & -\left(2n+1\right)!\sum_{k=0}^{n-1}\frac{a_{k+1}b_{n-k}}{\left(2k+1\right)!}\\
+ & = & \sum_{k=1}^{n-1}\frac{a_{k}b_{n+1-k}}{\left(2k-1\right)!}+n\left(2n+1\right)a_{n}\\
+ & = & \frac{1}{2^{2n}}\sum_{k=1}^{n-1}A_{n,k}a_{k}+n\left(2n+1\right)a_{n}\\
+A_{n,k} & = & \frac{2^{2k}\left(2n-2k-2\right)!\left(4n-4k-5\right)\left(2n+1\right)!}{\left(2k-1\right)!\left(n-k+1\right)!\left(n-k-1\right)!}\\
+A_{n,n-1} & = & \frac{-2^{2n-2}\left(2n+1\right)!}{\left(2n-3\right)!2!}\\
+ & = & -3\times2^{2n}C_{2n+1}^{4}\\
+A_{n,k+1} & = & \frac{2^{2k+2}\left(2n-2k-4\right)!\left(4n-4k-9\right)\left(2n+1\right)!}{\left(2k+1\right)!\left(n-k\right)!\left(n-k-2\right)!}\\
+\frac{A_{n,k}}{A_{n,k+1}} & = & \frac{C_{2n-2k-2}^{2}\left(4n-4k-5\right)}{\left(4n-4k-9\right)}\frac{C_{2k+1}^{2}}{\left(n-k+1\right)\left(n-k-1\right)}\\
+ & = & \frac{C_{2k+1}^{2}C_{2n-2k-2}^{2}\left(4n-4k-5\right)}{\left(4n-4k-9\right)\left(\left(n-k\right)^{2}-1\right)}\\
+A_{n,k} & = & \frac{C_{2k+1}^{2}C_{2n-2k-2}^{2}\left(4n-4k-5\right)}{\left(4n-4k-9\right)\left(\left(n-k\right)^{2}-1\right)}A_{n,k+1}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Some Properties of 
+\begin_inset Formula $a_{n}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+There are some properties about 
+\begin_inset Formula $a_{n}$
+\end_inset
+
+, especially the numerator and denominator of 
+\begin_inset Formula $\frac{a_{n}}{\left(2n\right)!}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{a_{n}}{\left(2n\right)!} & = & \frac{p_{n}}{q_{n}}\\
+q_{n} & = & 2^{n_{2}}m,2\nmid m\\
+n & = & 2^{\left[\log_{2}^{n}\right]}+k\\
+f_{k} & = & 2n-n_{2}\\
+ & = & 1,2,2,3,2,3,3,4,\\
+ &  & 2,3,3,4,3,4,4,5,\\
+ &  & 2,3,3,4,3,4,4,5,\cdots
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+There is an interesting property with the sequence 
+\begin_inset Formula $f_{n}$
+\end_inset
+
+, one can determine 
+\begin_inset Formula $f_{n}$
+\end_inset
+
+ with a folding algorithm
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+f_{0} & = & 1\\
+f_{n} & = & f_{n-2^{\left[\log_{2}^{n}\right]}}\\
+f_{2^{n}+k} & = & f_{k},\ge0,\\
+0 & \le & k\le2^{n}-1
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Or more directly, 
+\begin_inset Formula $f_{n}$
+\end_inset
+
+ is the number of 1s in the binary form of n.
+ For instance
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+2^{m} & = & 1\underbrace{00\cdots0}_{m}\\
+f_{2^{m}} & = & 1\\
+2^{m}-1 & = & \underbrace{111\cdots1}_{m}\\
+f_{2^{m}-1} & = & m
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finally, one can write
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+k & = & n-2^{\left[\log_{2}^{n}\right]}\\
+q_{n} & \equiv & 0\left(mod\;2^{2n-f_{k}}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Especially, when n is the power of 2, one can write
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+q_{2^{m}} & = & 2^{2^{m-1}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As for the numerator 
+\begin_inset Formula $p_{n}$
+\end_inset
+
+, there is a conjecture that there are infinitely n so that 
+\begin_inset Formula $p_{n}$
+\end_inset
+
+ is prime, some prime 
+\begin_inset Formula $p_{n}$
+\end_inset
+
+ as bellow
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+p_{5} & = & 13\\
+p_{6} & = & 31\\
+p_{10} & = & 5843\\
+p_{15} & = & 2458109\\
+p_{18} & = & 287091419\\
+p_{24} & = & 254342741399\\
+p_{35} & = & 3529501245305884867\\
+p_{39} & = & 427860028793103252967\\
+p_{83} & = & 906377099957202739168\\
+ &  & 439729625276641710281\\
+ &  & 62149\\
+p_{104} & = & 890041453097372994863\\
+ &  & 389952648819701669139\\
+ &  & 68061129264810447\\
+p_{109} & = & 178041567983613612685\\
+ &  & 170776564228683871018\\
+ &  & 804351665817679734203\\
+p_{120} & = & 593034744586068109565\\
+ &  & 075377561604220776300\\
+ &  & 623247248105927795763\\
+ &  & 23897\\
+p_{437} & = & 132826198763401313280\\
+ &  & 585119934525107382711\\
+ &  & 284452214529798920088\\
+ &  & 069952738221413540575\\
+ &  & 646323455756363232682\\
+ &  & 095220830661203976318\\
+ &  & 730041110236955737761\\
+ &  & 420708939239504355127\\
+ &  & 804643551416330663663\\
+ &  & 997210832053536500045\\
+ &  & 423635910869675730412\\
+ &  & 885022471452421547266\\
+ &  & 30814189\\
+p_{490} & = & 508818332708978663103\\
+ &  & 107911527620184502586\\
+ &  & 073511194666269794065\\
+ &  & 763105253803021305545\\
+ &  & 331613391179050179918\\
+ &  & 750722619885974464239\\
+ &  & 453380533927033735587\\
+ &  & 851768367857263396369\\
+ &  & 992989008221344478305\\
+ &  & 633246748311053178344\\
+ &  & 493170345298176422170\\
+ &  & 127717655694908284303\\
+ &  & 180577462897540480172\\
+ &  & 026642211891918649\\
+p_{552} & = & 2039052684120318062\\
+ &  & 9032554889106983231\\
+ &  & 8156458396082806651\\
+ &  & 0840476779448769104\\
+ &  & 4058884861552698620\\
+ &  & 89393129452028971\\
+ &  & 4756847971993219664\\
+ &  & 2272381333662993054\\
+ &  & 3935108519650164989\\
+ &  & 0540453125429789130\\
+ &  & 04252955375193693\\
+ &  & 6274967897166378869\\
+ &  & 3431710245426744510\\
+ &  & 5743490756545708646\\
+ &  & 119920490625\\
+ &  & 5146902790276966220\\
+ &  & 8837000889825196913\\
+ &  & 98449971025842337\\
+\cdots & \cdots & \cdots
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Summary
+\end_layout
+
+\begin_layout Standard
+The Bowl's sequence was given in this note, and the recurrence formulas
+ was given too.
+\end_layout
+
+\begin_layout Standard
+Take-home message is here
+\end_layout
+
+\begin_layout Standard
+(a.) The power series of 
+\begin_inset Formula $\arctan\left(1-\sqrt{1-x^{2}}\right)$
+\end_inset
+
+ is 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+ &  & \arctan\left(1-\sqrt{1-x^{2}}\right)\\
+ & = & \sum_{n=1}^{\infty}\frac{a_{n}}{\left(2n\right)!}x^{2n}\\
+a_{1} & = & 1\\
+a_{n+1} & = & \frac{1}{2^{2n}}\sum_{k=1}^{n-1}A_{n,k}a_{k}+n\left(2n+1\right)a_{n}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(b.) A property of 
+\begin_inset Formula $a_{n}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{p_{n}}{q_{n}} & = & \frac{a_{n}}{\left(2n\right)!}\\
+q_{2^{m}} & = & 2^{2^{m-1}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

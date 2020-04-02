@@ -1,0 +1,11 @@
+*pyc
+.DS_Store
+~*
+*~
+\#*
+*aux
+*log
+*pdf
+*tex
+*toc
+*out
