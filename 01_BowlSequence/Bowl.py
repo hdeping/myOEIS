@@ -35,6 +35,16 @@ class Bowl():
             res.append(num)
 
         return res
+    def getFactorNum(self,num,factor):
+        """
+        docstring for getFactorNum
+        get the number of a specific factor
+        """
+        n = 0 
+        while num%factor == 0 and num > 0:
+            n = n + 1
+            num = num // factor
+        return n
     def testBowl(self,n=100):
         """
         docstring for testArctanSqrt
@@ -74,15 +84,10 @@ class Bowl():
             p,q = fraction(-num/(2*i+2))
             num = -num*factorials[2*i+1]
             res.append(num)
-            print(i+1,self.getFactorNum(num,5))
+            print(i+1,self.getFactorNum(num,3))
             # print("p_{%d} & = & %d \\\\"%(i+1,p))
             # print("q_{%d} & = & %d \\\\"%(i+1,q))
-            # dicts = factorint(q)
-            # split = ""
-            # for key in dicts:
-            #     value  = dicts[key]
-            #     split += "%d^{%d}\\times"%(key,value)
-            # print("& = & %s\\\\"%(split))
+            
 
 
         
