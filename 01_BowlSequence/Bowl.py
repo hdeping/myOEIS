@@ -45,6 +45,21 @@ class Bowl():
             n = n + 1
             num = num // factor
         return n
+
+    def getFactorSplit(self,q):
+        """
+        docstring for getFactorSplit
+        """
+        dicts = factorint(q)
+        split = ""
+        for key in dicts:
+            value  = dicts[key]
+            split += "%d^{%d}\\times"%(key,value)
+
+        split = split[:-6]
+        print("& = & %s\\\\"%(split))
+        return split
+
     def testBowl(self,n=100):
         """
         docstring for testArctanSqrt
@@ -75,6 +90,8 @@ class Bowl():
         factors = []
         # for i in tqdm(range(1,n)):
         print(1,1,1,2)
+        n3 = [0]
+        n3_residue = [1]
         for i in range(1,n):
             num = 0
             for k in range(i):
@@ -84,9 +101,13 @@ class Bowl():
             p,q = fraction(-num/(2*i+2))
             num = -num*factorials[2*i+1]
             res.append(num)
-            print(i+1,self.getFactorNum(num,3))
+            n3.append(self.getFactorNum(num,3))
+            n3_residue.append(i+1-n3[-1])
+            print(i+1,n3_residue[-1])
             # print("p_{%d} & = & %d \\\\"%(i+1,p))
             # print("q_{%d} & = & %d \\\\"%(i+1,q))
+        print(n3)
+        print(n3_residue)
             
 
 
@@ -94,4 +115,4 @@ class Bowl():
         return
 
 bowl = Bowl()
-bowl.testBowl()
+bowl.testBowl(n = 300)

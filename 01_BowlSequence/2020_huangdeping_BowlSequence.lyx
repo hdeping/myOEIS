@@ -235,7 +235,32 @@ There are some properties about
 \begin_inset Formula $a_{n}$
 \end_inset
 
-, especially the numerator and denominator of 
+.
+ It is observed that
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+n & \equiv & 0\left(mod\;3\right),n\ge2\\
+n & \equiv & 0\left(mod\;5\right),n\ge3\\
+a_{n} & \equiv & 0\left(mod\;3^{f_{n,3}}\right)\\
+a_{n} & \equiv & 0\left(mod\;5^{f_{n,5}}\right)\\
+f_{n,3} & = & 0,1,1,2,4,4,7,6,6,8,\\
+ &  & 9,9,10,13,13,14,17,\\
+ &  & 15,17,18,19,19,21,\\
+ &  & 21,24,23\\
+f_{n,5} & = & 0,0,1,1,1,2,2,3,3,3,\\
+ &  & 5,5,6,6,6,7,7,8,8,8\cdots
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It is more interesting about the numerator and denominator of 
 \begin_inset Formula $\frac{a_{n}}{\left(2n\right)!}$
 \end_inset
 
@@ -300,12 +325,20 @@ Or more directly,
 2^{m} & = & 1\underbrace{00\cdots0}_{m}\\
 f_{2^{m}} & = & 1\\
 2^{m}-1 & = & \underbrace{111\cdots1}_{m}\\
-f_{2^{m}-1} & = & m
+f_{2^{m}-1} & = & m\\
+f_{0} & = & 0\\
+f_{2n} & = & f_{n}\\
+f_{2n+1} & = & f_{n}+1\\
+f_{n} & = & f_{\left[\frac{n}{2}\right]}+n\;mod\;2
 \end{eqnarray*}
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+See https://oeis.org/A000120, which is called Haming weight of n.
 \end_layout
 
 \begin_layout Standard
@@ -331,7 +364,7 @@ Especially, when n is the power of 2, one can write
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray*}
-q_{2^{m}} & = & 2^{2^{m-1}}
+q_{2^{m}} & = & 2^{2^{m+1}-1}
 \end{eqnarray*}
 
 \end_inset
@@ -340,11 +373,33 @@ q_{2^{m}} & = & 2^{2^{m-1}}
 \end_layout
 
 \begin_layout Standard
-As for the numerator 
+Furthermore, when n is the multiplication of a prime and a power of 2, one
+ can write
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+n & = & 2^{m}p\\
+q_{n} & = & p\times2^{2n-f_{k}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As for the numerators 
 \begin_inset Formula $p_{n}$
 \end_inset
 
-, there is a conjecture that there are infinitely n so that 
+, one can prove that all of 
+\begin_inset Formula $p_{n}$
+\end_inset
+
+ is odd since the denominators are always even.
+ Also, there is a conjecture that there are infinitely n so that 
 \begin_inset Formula $p_{n}$
 \end_inset
 
@@ -352,7 +407,236 @@ As for the numerator
 \begin_inset Formula $p_{n}$
 \end_inset
 
- as bellow
+ are listed in the Appendix.
+ 
+\end_layout
+
+\begin_layout Section
+Summary
+\end_layout
+
+\begin_layout Standard
+The Bowl's sequence was given in this note, and the recurrence formulas
+ was given too.
+\end_layout
+
+\begin_layout Standard
+Take-home message is here
+\end_layout
+
+\begin_layout Standard
+(a.) The power series of 
+\begin_inset Formula $\arctan\left(1-\sqrt{1-x^{2}}\right)$
+\end_inset
+
+ is 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+ &  & \arctan\left(1-\sqrt{1-x^{2}}\right)\\
+ & = & \sum_{n=1}^{\infty}\frac{a_{n}}{\left(2n\right)!}x^{2n}\\
+a_{1} & = & 1\\
+a_{n+1} & = & \frac{1}{2^{2n}}\sum_{k=1}^{n-1}A_{n,k}a_{k}+n\left(2n+1\right)a_{n}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(b.) A property of 
+\begin_inset Formula $a_{n}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{p_{n}}{q_{n}} & = & \frac{a_{n}}{\left(2n\right)!}\\
+q_{2^{m}} & = & 2^{2^{m-1}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Appendix
+\end_layout
+
+\begin_layout Subsection*
+\begin_inset Formula $a_{n}$
+\end_inset
+
+ with 
+\begin_inset Formula $n\le20$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+a_{1} & = & 1\\
+a_{2} & = & 3\\
+a_{3} & = & 15\\
+a_{4} & = & 315\\
+a_{5} & = & 36855\\
+a_{6} & = & 4833675\\
+a_{7} & = & 711485775\\
+a_{8} & = & 133449190875\\
+a_{9} & = & 33399969978375\\
+a_{10} & = & 10845524928112875\\
+a_{11} & = & 4368604540935009375\\
+a_{12} & = & 2121018409773134\\
+ &  & 746875\\
+a_{13} & = & 1222083076784378\\
+ &  & 918484375\\
+a_{14} & = & 8260130176741322\\
+ &  & 44878796875\\
+a_{15} & = & 6477241138419361\\
+ &  & 42199672859375\\
+a_{16} & = & 5831696435249193\\
+ &  & 52829283528046875\\
+a_{17} & = & 59735917746314449\\
+ &  & 1308077497692734375\\
+a_{18} & = & 69070563474827507\\
+ &  & 73890069987317042\\
+ &  & 96875\\
+a_{19} & = & 89530877093508634\\
+ &  & 76640969618485120\\
+ &  & 87109375\\
+a_{20} & = & 12930147565151909\\
+ &  & 18978281765759779\\
+ &  & 961360546875
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+\begin_inset Formula $p_{n}$
+\end_inset
+
+ with 
+\begin_inset Formula $n\le20$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+p_{1} & = & 1\\
+p_{2} & = & 1\\
+p_{3} & = & 1\\
+p_{4} & = & 1\\
+p_{5} & = & 13\\
+p_{6} & = & 31\\
+p_{7} & = & 117\\
+p_{8} & = & 209\\
+p_{9} & = & 3077\\
+p_{10} & = & 5843\\
+p_{11} & = & 22415\\
+p_{12} & = & 43015\\
+p_{13} & = & 330457\\
+p_{14} & = & 636347\\
+p_{15} & = & 2458109\\
+p_{16} & = & 4759409\\
+p_{17} & = & 147733749\\
+p_{18} & = & 287091419\\
+p_{19} & = & 1117521323\\
+p_{20} & = & 2178052043\\
+p_{21} & = & 5667208289\\
+p_{22} & = & 33216221057
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+\begin_inset Formula $q_{n}$
+\end_inset
+
+ with 
+\begin_inset Formula $n\le20$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+q_{1} & = & 2\\
+ & = & 2^{1}\\
+q_{2} & = & 8\\
+ & = & 2^{3}\\
+q_{3} & = & 48\\
+ & = & 2^{4}\times3^{1}\\
+q_{4} & = & 128\\
+ & = & 2^{7}\\
+q_{5} & = & 1280\\
+ & = & 2^{8}\times5^{1}\\
+q_{6} & = & 3072\\
+ & = & 2^{10}\times3^{1}\\
+q_{7} & = & 14336\\
+ & = & 2^{11}\times7^{1}\\
+q_{8} & = & 32768\\
+ & = & 2^{15}\\
+q_{9} & = & 589824\\
+ & = & 2^{16}\times3^{2}\\
+q_{10} & = & 1310720\\
+ & = & 2^{18}\times5^{1}\\
+q_{11} & = & 5767168\\
+ & = & 2^{19}\times11^{1}\\
+q_{12} & = & 12582912\\
+ & = & 2^{22}\times3^{1}\\
+q_{13} & = & 109051904\\
+ & = & 2^{23}\times13^{1}\\
+q_{14} & = & 234881024\\
+ & = & 2^{25}\times7^{1}\\
+q_{15} & = & 1006632960\\
+ & = & 2^{26}\times3^{1}\times5^{1}\\
+q_{16} & = & 2147483648\\
+ & = & 2^{31}\\
+q_{17} & = & 73014444032\\
+ & = & 2^{32}\times17^{1}\\
+q_{18} & = & 154618822656\\
+ & = & 2^{34}\times3^{2}\\
+q_{19} & = & 652835028992\\
+ & = & 2^{35}\times19^{1}\\
+q_{20} & = & 1374389534720\\
+ & = & 2^{38}\times5^{1}\\
+q_{21} & = & 3848290697216\\
+ & = & 2^{39}\times7^{1}\\
+q_{22} & = & 24189255811072\\
+ & = & 2^{41}\times11^{1}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Prime 
+\begin_inset Formula $p_{n}$
+\end_inset
+
+ within 1000
 \end_layout
 
 \begin_layout Standard
@@ -432,54 +716,32 @@ p_{552} & = & 2039052684120318062\\
 
 \end_layout
 
-\begin_layout Section
-Summary
-\end_layout
-
-\begin_layout Standard
-The Bowl's sequence was given in this note, and the recurrence formulas
- was given too.
-\end_layout
-
-\begin_layout Standard
-Take-home message is here
-\end_layout
-
-\begin_layout Standard
-(a.) The power series of 
-\begin_inset Formula $\arctan\left(1-\sqrt{1-x^{2}}\right)$
+\begin_layout Subsection*
+Integral of 
+\begin_inset Formula $f(x)$
 \end_inset
 
- is 
+ in the region 
+\begin_inset Formula $\left[0,1\right]$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray*}
- &  & \arctan\left(1-\sqrt{1-x^{2}}\right)\\
- & = & \sum_{n=1}^{\infty}\frac{a_{n}}{\left(2n\right)!}x^{2n}\\
-a_{1} & = & 1\\
-a_{n+1} & = & \frac{1}{2^{2n}}\sum_{k=1}^{n-1}A_{n,k}a_{k}+n\left(2n+1\right)a_{n}
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-(b.) A property of 
-\begin_inset Formula $a_{n}$
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{eqnarray*}
-\frac{p_{n}}{q_{n}} & = & \frac{a_{n}}{\left(2n\right)!}\\
-q_{2^{m}} & = & 2^{2^{m-1}}
+\int_{0}^{1}f(x)dx & = & \int_{0}^{1}dx\arctan\left(1-\sqrt{1-x^{2}}\right)\\
+ & = & \int_{0}^{\frac{\pi}{2}}d\theta\cos\theta\arctan\left(1-\cos\theta\right)\\
+ & = & 2\int_{0}^{\pi}d\theta\sum_{n=0}^{\infty}\frac{\left(-1\right)^{n}\cos2\theta\left(2\sin^{2}\theta\right)^{2n+1}}{\left(2n+1\right)!}\\
+ & = & \sum_{n=0}^{\infty}\frac{\left(-1\right)^{n}2\pi}{\left(2n+1\right)!}\\
+\\
+\\
+x & = & \sin\theta\\
+\tan y & = & 1-\sqrt{1-x^{2}}\\
+ & = & 1-\cos\theta=2\sin^{2}\frac{\theta}{2}\\
+\\
+\\
 \end{eqnarray*}
 
 \end_inset
