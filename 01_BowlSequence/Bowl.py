@@ -70,9 +70,13 @@ class Bowl():
         s,err = integrate.quad(f,0,1)
         print(s)
 
-        n = 
+        n = 1
         f = lambda x: np.cos(x)*(1-np.cos(x))**n
         s,err = integrate.quad(f,0,1)
+        print(s)
+
+        f = lambda x: np.cos(x)*np.arctan((1-np.cos(x)))
+        s,err = integrate.quad(f,0,np.pi/2)
         print(s)
         return
     def testBowl(self,n=100):

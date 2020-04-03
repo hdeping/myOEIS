@@ -406,7 +406,7 @@ q_{n} & = & p\times2^{2n-f_{k}}
 \end_layout
 
 \begin_layout Standard
-And, when n is a Mersenne prime, one can get 
+And, when n is a Mersenne prime, one can determine 
 \begin_inset Formula $q_{n}$
 \end_inset
 
@@ -416,7 +416,7 @@ And, when n is a Mersenne prime, one can get
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray*}
-q_{2^{m}-1} & = & 2^{2^{m+1}-2\left(m+1\right)}\left(2^{m}-1\right)
+q_{2^{m}-1} & = & 2^{2^{m+1}-2-m}\left(2^{m}-1\right)
 \end{eqnarray*}
 
 \end_inset
@@ -429,7 +429,7 @@ where m is prime and
 \begin_inset Formula $2^{m}-1$
 \end_inset
 
- is prime.
+ is prime (see A000043 about Mersenne prime).
 \end_layout
 
 \begin_layout Subsection
@@ -784,17 +784,30 @@ Integral of
 \begin{eqnarray*}
 \int_{0}^{1}f(x)dx & = & \int_{0}^{1}dx\arctan\left(1-\sqrt{1-x^{2}}\right)\\
  & = & \int_{0}^{\frac{\pi}{2}}d\theta\cos\theta\arctan\left(1-\cos\theta\right)\\
- & = & \int_{0}^{\pi}d\theta\sum_{n=0}^{\infty}\frac{\left(-1\right)^{n}\cos\theta\left(1-\cos\theta\right)^{2n+1}}{\left(2n+1\right)!}\\
- & = & \pi\sum_{n=0}^{\infty}\sum_{k=1}^{n+1}\frac{\left(-1\right)^{n+1}C_{2n+1}^{2k-1}C_{2k}^{k}}{\left(2n+1\right)!2^{2k}}\\
+ & = & \int_{0}^{\frac{\pi}{2}}d\theta\sum_{n=0}^{\infty}\frac{\left(-1\right)^{n}\cos\theta\left(1-\cos\theta\right)^{2n+1}}{\left(2n+1\right)!}\\
+ & = & \sum_{n=0}^{\infty}\sum_{k=0}^{n}\frac{\left(-1\right)^{n}\left(C_{2n+1}^{2k}I_{2k+1}-C_{2n+1}^{2k+1}I_{2k+2}\right)}{\left(2n+1\right)!}\\
+ & = & \sum_{n=0}^{\infty}\sum_{k=0}^{2n+1}\frac{\left(-1\right)^{n+k}C_{2n+1}^{k}I_{k+1}}{\left(2n+1\right)!}\\
  & = & \sum_{n=1}^{\infty}\frac{a_{n}}{\left(2n+1\right)!}\\
- &  & \int_{0}^{\pi}d\theta\cos\theta\left(1-\cos\theta\right)^{2n+1}\\
- & = & \int_{0}^{\pi}d\theta\cos\theta\sum_{k=0}^{2n+1}C_{2n+1}^{k}\left(-1\right)^{k}cos^{k}\theta\\
- & = & -\int_{0}^{\pi}d\theta\sum_{k=1}^{n+1}C_{2n+1}^{2k-1}cos^{2k}\theta\\
- & = & -\pi\sum_{k=1}^{n+1}C_{2n+1}^{2k-1}2^{-2k}C_{2k}^{k}\\
+ &  & \int_{0}^{\frac{\pi}{2}}d\theta\cos\theta\left(1-\cos\theta\right)^{2n+1}\\
+ & = & \int_{0}^{\frac{\pi}{2}}d\theta\cos\theta\sum_{k=0}^{2n+1}C_{2n+1}^{k}\left(-1\right)^{k}cos^{k}\theta\\
+ & = & \int_{0}^{\frac{\pi}{2}}d\theta\sum_{k=0}^{2n+1}\left(-1\right)^{k}C_{2n+1}^{k}cos^{k+1}\theta\\
+ & = & \sum_{k=0}^{2n+1}\left(-1\right)^{k}C_{2n+1}^{k}I_{k+1}\\
+ & = & \sum_{k=0}^{n}\left(C_{2n+1}^{2k}I_{2k+1}-C_{2n+1}^{2k+1}I_{2k+2}\right)\\
+ & = & \sum_{k=0}^{n}\left(\frac{C_{2n+1}^{2k}2^{2k}}{\left(2k+1\right)C_{2k}^{k}}-\frac{C_{2n+1}^{2k+1}C_{2k+2}^{k+1}\pi}{2^{2k+3}}\right)\\
 x & = & \sin\theta\\
 \tan y & = & 1-\sqrt{1-x^{2}}\\
  & = & 1-\cos\theta=2\sin^{2}\frac{\theta}{2}\\
-\int_{0}^{\pi}d\theta\cos^{2n}\theta & = & 2^{-2n}C_{2n}^{n}\pi
+\int_{0}^{\frac{\pi}{2}}d\theta\cos^{2n}\theta & = & 2^{-2n-1}C_{2n}^{n}\pi=I_{2n}\\
+\int_{0}^{\frac{\pi}{2}}d\theta\cos^{2n+1}\theta & = & \frac{\Gamma\left(n+1\right)\Gamma\left(\frac{1}{2}\right)}{2\Gamma\left(n+\frac{3}{2}\right)\left(\frac{3}{2}\right)\left(\frac{1}{2}\right)}\\
+ & = & \frac{n!2^{n}}{\left(2n+1\right)!!}\\
+ & = & \frac{\left(n!\right)^{2}2^{2n}}{\left(2n+1\right)!}=\frac{2^{2n}}{\left(2n+1\right)C_{2n}^{n}}\\
+ & = & I_{2n+1}\\
+I_{2n}I_{2n+1} & = & \frac{\pi}{2\left(2n+1\right)}\\
+I_{0} & = & \frac{\pi}{2},I_{1}=1\\
+I_{m-1}I_{m} & = & \frac{\pi}{2m}\\
+I_{m}I_{m+1} & = & \frac{\pi}{2m+2}\\
+\\
+\\
 \end{eqnarray*}
 
 \end_inset
