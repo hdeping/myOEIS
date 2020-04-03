@@ -230,6 +230,14 @@ Some Properties of
 
 \end_layout
 
+\begin_layout Subsection
+Factors of 
+\begin_inset Formula $a_{n}$
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 There are some properties about 
 \begin_inset Formula $a_{n}$
@@ -254,6 +262,14 @@ f_{n,5} & = & 0,0,1,1,1,2,2,3,3,3,\\
  &  & 5,5,6,6,6,7,7,8,8,8\cdots
 \end{eqnarray*}
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Denominator of 
+\begin_inset Formula $\frac{a_{n}}{\left(2n\right)!}$
 \end_inset
 
 
@@ -363,9 +379,9 @@ Especially, when n is the power of 2, one can write
 
 \begin_layout Standard
 \begin_inset Formula 
-\begin{eqnarray*}
-q_{2^{m}} & = & 2^{2^{m+1}-1}
-\end{eqnarray*}
+\begin{equation}
+q_{2^{m}}=2^{2^{m+1}-1}
+\end{equation}
 
 \end_inset
 
@@ -384,6 +400,41 @@ n & = & 2^{m}p\\
 q_{n} & = & p\times2^{2n-f_{k}}
 \end{eqnarray*}
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+And, when n is a Mersenne prime, one can get 
+\begin_inset Formula $q_{n}$
+\end_inset
+
+ via
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+q_{2^{m}-1} & = & 2^{2^{m+1}-2\left(m+1\right)}\left(2^{m}-1\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where m is prime and 
+\begin_inset Formula $2^{m}-1$
+\end_inset
+
+ is prime.
+\end_layout
+
+\begin_layout Subsection
+Numerator of 
+\begin_inset Formula $\frac{a_{n}}{\left(2n\right)!}$
 \end_inset
 
 
@@ -733,15 +784,17 @@ Integral of
 \begin{eqnarray*}
 \int_{0}^{1}f(x)dx & = & \int_{0}^{1}dx\arctan\left(1-\sqrt{1-x^{2}}\right)\\
  & = & \int_{0}^{\frac{\pi}{2}}d\theta\cos\theta\arctan\left(1-\cos\theta\right)\\
- & = & 2\int_{0}^{\pi}d\theta\sum_{n=0}^{\infty}\frac{\left(-1\right)^{n}\cos2\theta\left(2\sin^{2}\theta\right)^{2n+1}}{\left(2n+1\right)!}\\
- & = & \sum_{n=0}^{\infty}\frac{\left(-1\right)^{n}2\pi}{\left(2n+1\right)!}\\
-\\
-\\
+ & = & \int_{0}^{\pi}d\theta\sum_{n=0}^{\infty}\frac{\left(-1\right)^{n}\cos\theta\left(1-\cos\theta\right)^{2n+1}}{\left(2n+1\right)!}\\
+ & = & \pi\sum_{n=0}^{\infty}\sum_{k=1}^{n+1}\frac{\left(-1\right)^{n+1}C_{2n+1}^{2k-1}C_{2k}^{k}}{\left(2n+1\right)!2^{2k}}\\
+ & = & \sum_{n=1}^{\infty}\frac{a_{n}}{\left(2n+1\right)!}\\
+ &  & \int_{0}^{\pi}d\theta\cos\theta\left(1-\cos\theta\right)^{2n+1}\\
+ & = & \int_{0}^{\pi}d\theta\cos\theta\sum_{k=0}^{2n+1}C_{2n+1}^{k}\left(-1\right)^{k}cos^{k}\theta\\
+ & = & -\int_{0}^{\pi}d\theta\sum_{k=1}^{n+1}C_{2n+1}^{2k-1}cos^{2k}\theta\\
+ & = & -\pi\sum_{k=1}^{n+1}C_{2n+1}^{2k-1}2^{-2k}C_{2k}^{k}\\
 x & = & \sin\theta\\
 \tan y & = & 1-\sqrt{1-x^{2}}\\
  & = & 1-\cos\theta=2\sin^{2}\frac{\theta}{2}\\
-\\
-\\
+\int_{0}^{\pi}d\theta\cos^{2n}\theta & = & 2^{-2n}C_{2n}^{n}\pi
 \end{eqnarray*}
 
 \end_inset

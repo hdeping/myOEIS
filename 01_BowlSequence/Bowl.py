@@ -15,6 +15,8 @@
 ============================
 """
 from sympy import *
+import numpy as np
+from scipy import integrate
 
 class Bowl():
     """docstring for Bowl"""
@@ -60,6 +62,19 @@ class Bowl():
         print("& = & %s\\\\"%(split))
         return split
 
+    def testIntegral(self):
+        """
+        docstring for testIntegral
+        """
+        f = lambda x: np.arctan(1-np.sqrt(1-x*x))
+        s,err = integrate.quad(f,0,1)
+        print(s)
+
+        n = 
+        f = lambda x: np.cos(x)*(1-np.cos(x))**n
+        s,err = integrate.quad(f,0,1)
+        print(s)
+        return
     def testBowl(self,n=100):
         """
         docstring for testArctanSqrt
@@ -108,11 +123,16 @@ class Bowl():
             # print("q_{%d} & = & %d \\\\"%(i+1,q))
         print(n3)
         print(n3_residue)
-            
-
-
         
         return
 
+    def test(self):
+        """
+        docstring for test
+        """
+        # self.testBowl()
+        self.testIntegral()
+        return
+
 bowl = Bowl()
-bowl.testBowl(n = 300)
+bowl.test()
