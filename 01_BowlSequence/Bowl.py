@@ -42,7 +42,6 @@ class Bowl():
         f\left(x\right)&=&\arctan\left(1-\sqrt{1-x^{2}}\right)
 
         """
-
         paras = [Integer(1),Integer(1)/2]
         for i in range(n):
             num = paras[-1]*(2*i+2)*(2*i+1)
@@ -65,6 +64,7 @@ class Bowl():
         res = [1]
         factors = []
         # for i in tqdm(range(1,n)):
+        print(1,1,1,2)
         for i in range(1,n):
             num = 0
             for k in range(i):
@@ -74,7 +74,16 @@ class Bowl():
             p,q = fraction(-num/(2*i+2))
             num = -num*factorials[2*i+1]
             res.append(num)
-            print(i+1,p)
+            print(i+1,self.getFactorNum(num,5))
+            # print("p_{%d} & = & %d \\\\"%(i+1,p))
+            # print("q_{%d} & = & %d \\\\"%(i+1,q))
+            # dicts = factorint(q)
+            # split = ""
+            # for key in dicts:
+            #     value  = dicts[key]
+            #     split += "%d^{%d}\\times"%(key,value)
+            # print("& = & %s\\\\"%(split))
+
 
         
         return
