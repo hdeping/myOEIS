@@ -106,9 +106,10 @@ class Bowl():
         factorials = [1] + factorials
 
         res = [1]
+        P,Q = [1],[2]
         factors = []
         # for i in tqdm(range(1,n)):
-        print(1,1,1,2)
+        # print(1,1,1,2)
         n3 = [0]
         n3_residue = [1]
         for i in range(1,n):
@@ -118,15 +119,31 @@ class Bowl():
                 num += res[k]*b[i-k]/factorials[2*k+1]
 
             p,q = fraction(-num/(2*i+2))
+            P.append(p)
+            Q.append(q)
             num = -num*factorials[2*i+1]
             res.append(num)
-            n3.append(self.getFactorNum(num,3))
-            n3_residue.append(i+1-n3[-1])
-            print(i+1,n3_residue[-1])
+            print(i,len(str(num))/i)
+            # n3.append(self.getFactorNum(num,3))
+            # n3_residue.append(i+1-n3[-1])
+            # print(i+1,n3_residue[-1])
             # print("p_{%d} & = & %d \\\\"%(i+1,p))
             # print("q_{%d} & = & %d \\\\"%(i+1,q))
-        print(n3)
-        print(n3_residue)
+        # print(n3)
+        # print(n3_residue)
+
+        fp = []
+        filenames = ["A333691.txt","A333713.txt","A333714.txt"]
+        for name in filenames:
+            fp.append(open(name,"w"))
+        for i,(n,p,q) in enumerate(zip(res,P,Q)):
+            fp[0].write("%d %d\n"%(i+1,n))
+            fp[1].write("%d %d\n"%(i+1,p))
+            fp[2].write("%d %d\n"%(i+1,q))
+            # print(i,len(str(p)))
+
+        print(res[1:50])
+        print(P[1:50])
         
         return
 
@@ -134,8 +151,8 @@ class Bowl():
         """
         docstring for test
         """
-        # self.testBowl()
-        self.testIntegral()
+        self.testBowl(n = 1000)
+        # self.testIntegral()
         return
 
 bowl = Bowl()
