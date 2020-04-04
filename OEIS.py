@@ -14,7 +14,7 @@
 
 ============================
 """
-
+from sympy import *
 class OEIS():
     """docstring for OEIS"""
     def __init__(self):
@@ -22,11 +22,30 @@ class OEIS():
     def A000108Catalan(self,n=20):
         """
         docstring for A000108Catalan
+        a(n) = C(2n,n)/(n+1)
         """
-        
+        res = [1]
+        for i in range(1,n):
+            num = res[-1]*2*(2*i-1)//((i+1))
+            res.append(num)
+        # print(res)
+
+        total = Integer(0)
+        for i,j in enumerate(res):
+            total += j/2**(2*i+1)
+        print(total)
+
+        return res 
+
+    def test(self):
+        """
+        docstring for test
+        """
+        self.A000108Catalan(n=5000)
         return
 
-
+oeis = OEIS()
+oeis.test()
 
 
 
